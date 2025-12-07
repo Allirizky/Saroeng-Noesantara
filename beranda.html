@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Saroeng Noesantara</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-white text-gray-800">
+
+  <!-- NAVBAR -->
+  <header class="bg-white shadow-sm">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div class="flex items-center space-x-3">
+        <div class="text-black w-10 h-10 flex items-center justify-center rounded-lg font-bold">N</div>
+        <div>
+          <p class="font-semibold text-gray-800">Saroeng Noesantara</p>
+          <p class="text-xs text-gray-500">Menyatukan tradisi & gaya</p>
+        </div>
+      </div>
+
+      <nav class="flex items-center space-x-6 text-sm">
+        <a href="beranda.html" class="hover:text-orange-500">Beranda</a>
+        <a href="produk.html" class="hover:text-orange-500">Produk</a>
+        <a href="kontak.html" class="hover:text-orange-500">Kontak</a>
+
+        <button class="px-4 py-2 bg-red-500 text-white rounded-lg flex items-center space-x-2 shadow">
+          <span>Keranjang</span>
+          <span class="bg-white text-red-500 px-2 rounded text-xs">0</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section 
+  class="relative py-24 bg-cover bg-center bg-no-repeat overflow-hidden"
+  style="background-image: url('gambar/background.jpg');">
+
+  <!-- Overlay gelap lembut agar teks lebih terbaca -->
+  <div class="absolute inset-0 bg-black/30 backdrop-blur-sm"></div>
+
+  <!-- Konten -->
+  <div class="relative max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+
+    <!-- Teks (dengan animasi fade & slide) -->
+    <div class="animate-[fadeSlide_1s_ease-out]">
+      <h1 class="text-5xl md:text-6xl font-extrabold text-white drop-shadow mb-4">
+        Saroeng Noesantara
+      </h1>
+
+      <p class="text-gray-100 text-lg md:text-xl mb-6 drop-shadow">
+        Pilihan sarung berkualitas dengan desain elegan. Menggabungkan tradisi Nusantara dan gaya modern.
+      </p>
+
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- Animasi kustom (Tailwind Add-on) -->
+<style>
+@keyframes fadeSlide {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+</style>
+
+  <!-- SECTION 1 — Judul + Deskripsi Brand -->
+  <section class="max-w-5xl mx-auto px-6 py-16">
+    <h1 class="text-4xl md:text-5xl font-extrabold mb-6">
+      Saroeng Noesantara
+    </h1>
+
+    <p class="leading-relaxed text-lg mb-4">
+      Di <strong>Saroeng Noesantara</strong>, kami menghadirkan beragam pilihan sarung dengan kualitas terbaik dan desain elegan.
+      Setiap helai sarung bukan hanya kain, tetapi cerita <strong>budaya Nusantara</strong> yang diwariskan dari generasi ke generasi.
+    </p>
+
+    <p class="leading-relaxed text-lg mb-4">
+      Kami percaya sarung adalah simbol <strong>keanggunan dan identitas</strong>, yang dapat dikenakan di berbagai kesempatan –
+      mulai dari acara resmi, momen ibadah, hingga gaya santai modern.
+    </p>
+
+    <p class="leading-relaxed text-lg mb-4">
+      Dengan sentuhan desain yang mengikuti perkembangan zaman, kami menggabungkan tradisi yang <strong>tak lekang waktu</strong> 
+      dengan gaya hidup masa kini.
+    </p>
+
+    <p class="leading-relaxed text-lg">
+      Pilih sarung terbaik Anda dan rasakan kenyamanan serta keanggunannya dalam setiap lipatan.
+    </p>
+
+    <div class="border-b border-gray-400 mt-12"></div>
+  </section>
+
+  <!-- SECTION 2 — Judul Tengah -->
+  <section class="max-w-5xl mx-auto px-6 py-10 text-center">
+    <h2 class="text-3xl md:text-4xl font-bold mb-4">
+      Membalut Tradisi, Menyempurnakan Gaya
+    </h2>
+    <div class="border-b border-gray-400 mt-6"></div>
+  </section>
+
+  <!-- SECTION 3 — Carousel Gambar -->
+  <section class="py-10">
+    <div class="max-w-xl mx-auto relative">
+      <img id="carousel-img" src="gambar/arsenal.jpeg"
+           class="w-full rounded-xl shadow-lg object-cover">
+
+      <!-- Dots -->
+      <div class="flex justify-center space-x-2 mt-4">
+        <span class="dot w-3 h-3 rounded-full bg-green-600 cursor-pointer" onclick="showImg(0)"></span>
+        <span class="dot w-3 h-3 rounded-full bg-gray-400 cursor-pointer" onclick="showImg(1)"></span>
+        <span class="dot w-3 h-3 rounded-full bg-gray-400 cursor-pointer" onclick="showImg(2)"></span>
+        <span class="dot w-3 h-3 rounded-full bg-gray-400 cursor-pointer" onclick="showImg(3)"></span>
+      </div>
+    </div>
+
+    <script>
+      const images = ["gambar/arsenal.jpeg", "gambar/munchen.jpeg", "gambar/barca.jpeg", "gambar/juve.jpeg"];
+      let index = 0;
+
+      function showImg(i) {
+        index = i;
+        document.getElementById("carousel-img").src = images[i];
+        updateDots();
+      }
+
+      function updateDots() {
+        document.querySelectorAll(".dot").forEach((d, i) => {
+          d.classList.remove("bg-green-600");
+          d.classList.add("bg-gray-400");
+          if (i === index) {
+            d.classList.add("bg-green-600");
+          }
+        });
+      }
+    </script>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-gray-300 py-10 mt-16">
+    <div class="max-w-5xl mx-auto px-6 text-center">
+
+      <a href="#" class="text-gray-700 underline block mb-6">
+        Saroeng Noesantara – Tradisi yang Tak Lekang oleh Waktu
+      </a>
+
+      <!-- Kontak -->
+      <div class="text-sm mb-6">
+        <p class="mb-2">📍 Ciputat, Tangerang Selatan, Banten, Indonesia</p>
+        <p class="mb-2">📞 WhatsApp: +62 878 8685 6048</p>
+        <p>📧 <a href="mailto:saroengnoesantara@gmail.com" class="underline">
+          saroengnoesantara@gmail.com
+        </a></p>
+      </div>
+
+      <!-- Icons Sosial Media -->
+      <div class="flex justify-center space-x-6 text-3xl mb-4">
+        <a href="#" class="text-pink-600">📸</a>
+        <a href="#" class="text-green-600">💬</a>
+        <a href="#" class="text-black">🎵</a>
+      </div>
+
+      <p class="text-sm text-gray-700">Hubungi Kami</p>
+
+      <p class="text-xs text-gray-600 mt-6">
+        © 2025 Saroeng Noesantara
+      </p>
+
+    </div>
+  </footer>
+
+</body>
+</html>
